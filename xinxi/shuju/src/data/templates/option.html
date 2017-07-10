@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="/login/"  method="post"> 
+<!--  <div class="oz-form-fields"  style="width:450px;padding-top: 5px">   -->
+ <!--     <table border='2' cellpadding="0" cellspacing="0" style="width:1300px;" id="optionContainer">    -->
+    <table cellpadding="0" cellspacing="0"  align="center" border='2' style="width:1300px" id="form-data"  > 
+        <tr id="option0">   
+            <td class="oz-form-topLabel">所属问题  
+                <c:if test="${questionType=='radio'}">(单选)</c:if>  
+                <c:if test="${questionType=='checkbox'}">(复选)</c:if>  
+            </td>  
+            <td class="oz-property" >  
+                ${question}  
+            </td>  
+            <td></td>  
+        </tr>  
+        <tr id="option1">   
+            <td class="oz-form-topLabel">选项1：</td>  
+            <td class="oz-property" >
+             <td rowspan="1">IP信息:</td>     
+     <td rowspan="1">
+                     内部IP:Port:<input id="password" type="text" name="pwd" /><br/>
+                     外部IP:Port:<input id="password" type="text" name="pwd"/></td>
+     <td  rowspan="1"><input id="password" type="text" name="pwd"  style="width:180px;height:50px;"/></td>
+     <td rowspan="1"><label>
+     <input name="Fruit" type="checkbox" value=""/>web</label><br/>
+     <label><input name="Fruit" type="checkbox" value=""/>接口</label><br/>
+      <label><input name="Fruit" type="checkbox" value=""/>其他</label>
+     </td>
+     <td rowspan="1"></td>
+     <td rowspan="1"></td>
+     <td rowspan="1"></td>
+            <td></td>  
+        </tr>  
+        <tr id="option2">   
+            <td class="oz-form-topLabel">选项2：</td>  
+            <td class="oz-property" >  
+                <input type="text"  style="width:300px" >  
+            </td>  
+            <td></td>  </td>
+        </tr>  
+        <tr id="option3">   
+            <td class="oz-form-topLabel">选项3：</td>  
+            <td class="oz-property" >  
+                <input type="text"  style="width:300px">  
+            </td>  
+            <td></td>  
+        </tr>  
+        <tr id="option4">   
+            <td class="oz-form-topLabel">选项4：</td>  
+            <td class="oz-property" >
+            <td rowspan="1">IP信息:</td>     
+     <td rowspan="1">
+                     内部IP:Port:<input id="password" type="text" name="pwd" /><br/>
+                     外部IP:Port:<input id="password" type="text" name="pwd"/></td>
+     <td  rowspan="1"><input id="password" type="text" name="pwd"  style="width:180px;height:50px;"/></td>
+     <td rowspan="1"><label>
+     <input name="Fruit" type="checkbox" value=""/>web</label><br/>
+     <label><input name="Fruit" type="checkbox" value=""/>接口</label><br/>
+      <label><input name="Fruit" type="checkbox" value=""/>其他</label>
+     </td>
+     <td rowspan="1"></td>
+     <td rowspan="1"></td>
+     <td rowspan="1"></td>
+            <td></td>  </td>
+        </tr>  
+    </table>  
+    <div style="text-align: center;">  
+        <a href="#" onclick="addRow()">添加一行</a>  
+    </div>  
+<!-- </div>     -->
+<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+<script >
+var rowCount=4;  //行数默认4行  
+
+//添加行  
+function addRow(){  
+  rowCount++;  
+  var newRow='<tr id="option'+rowCount+'"><td class="oz-property" ><td rowspan="1">IP信息:</td><td rowspan="1">内部IP:Port:<input id="password" type="text" name="pwd" /><br/>外部IP:Port:<input id="password" type="text" name="pwd"/></td><td  rowspan="1"><input id="password" type="text" name="pwd"  style="width:180px;height:50px;"/></td><td rowspan="1"><label><input name="Fruit" type="checkbox" value=""/>web</label><br/><label><input name="Fruit" type="checkbox" value=""/>接口</label><br/><label><input name="Fruit" type="checkbox" value=""/>其他</label></td><td rowspan="1"></td><td rowspan="1"></td><td rowspan="1"></td></td><td><a href="#" onclick=delRow('+rowCount+')>删除</a></td></tr>';
+  $('#form-data').append(newRow);  
+}  
+
+//删除行  
+function delRow(rowIndex){  
+  $("#option"+rowIndex).remove();  
+  rowCount--;  
+}
+</script> 
+</form>
+</body>
+</html>

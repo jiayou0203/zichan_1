@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>信息展示库</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ <style type="text/css">
+.bodystyle{
+filter:alpha(opacity=10);  
+-moz-opacity:0.5;  
+-khtml-opacity: 0.5; 
+opacity: 0.5;
+height:100%;
+width:100%;
+position:absolute;
+background-size:1300px 900px;
+background-image:url("http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0E/ChMkJlbKwbeIK_NlAB5xKUP_rZgAALGcwCo0gMAHnFB540.jpg");
+}
+</style> 
+</head>
+<body>
+<div class="bodystyle">
+</div>
+<table align="center" border='1' width="500px">
+  
+  <tr>
+     <th colspan="5">信息展示模块</th>
+  </tr>
+  <tr>
+      <th rowspan="2">用户名</th>
+      <td align="right">个人秘钥</td>
+      <td align="right">身份认证系统</td>
+  </tr>
+</table>
+{% for post in blog_list %}
+ <h2>申请人:{{ post.data_applicant }}</h2>
+ <h2>申请部门:{{ post.data_department }}</h2>
+ <h2>申请时间:{{ post.data_application_time }}</h2>
+ <h2>用途:{{ post.yont_tu }}</h2>
+ <h2>内部ip:{{ post.nei_ip }}</h2>
+ <h2>外部ip:{{ post.wai_ip }}</h2>
+  {% endfor %}  
+</body> 
+</html>>
+
+<!--  <h2>{{ post.data_internal_ip }}</h2>
+ <h2>{{ post.data_external_ip }}</h2>  -->

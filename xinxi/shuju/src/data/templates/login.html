@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>情报搜集库</title>
+ 
+<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+<script >
+var rowCount=5;  //行数默认4行  
+//添加行  
+function addRow(){  
+  rowCount++;  
+  var newRow='<tr id="option'+rowCount+'"><td rowspan="1">IP信息:</td><td rowspan="1">内部IP:Port:<input id="neibu" type="text" name="internal_ip" /><br/>外部IP:Port:<input id="waibu" type="text" name="external_ip"/></td><td  rowspan="1"><input id="yongtu" type="text" name="application_brief"  style="width:180px;height:50px;"/></td><td rowspan="1"><label><input name="Fruit" type="checkbox" value=""/>web</label><br/><label><input name="Fruit" type="checkbox" value=""/>接口</label><br/><label><input name="Fruit" type="checkbox" value=""/>其他</label></td><td width=20><input id="url" type="text" name="url" ></td><td width=20><input id="daili" type="text" name="agent" ></td><td width=20><input id="baiip" type="text" name="white_list" ></td></tr>';
+  $('#form-data').append(newRow);  
+}  
+//删除行  
+function delRow(rowIndex){  
+  $("#option"+rowIndex).remove();  
+  rowCount--;  
+}
+//<![CDATA[
+           window.onload=function(){
+        	   var form=document.getElementById('form-data');
+        	   form.onsubmit=function(){
+        		   var users=document.getElementsByName('internal_ip[]');
+        		   for(var i=0;i<users.length;i++){
+        			   if(users[i].value==''){
+        				   alert('value is null.');
+        				   return false;
+        			   }
+        		   }
+        		   return true;
+        	   };
+           }
+     //]]>
+</script> 
+ <style type="text/css">
+.bodystyle{
+filter:alpha(opacity=10);  
+-moz-opacity:0.5;  
+-khtml-opacity: 0.5; 
+opacity: 0.5;
+height:100%;
+width:100%;
+position:absolute;
+background-size:1300px 900px;
+background-image:url("http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0E/ChMkJlbKwbeIK_NlAB5xKUP_rZgAALGcwCo0gMAHnFB540.jpg");
+}
+</style> 
+<!--  <div filter:alpha(opacity=50);style="position:absolute;z-index:-1;width:100%;height:100%;">
+    	<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498481350037&di=f9ce97eb27deff4aff7d4b9b7b213a92&imgtype=0&src=http%3A%2F%2Fupload.cbg.cn%2F2016%2F0821%2F1471753105928.jpg" width="100%" height="100%" />  -->
+</head>
+<body >
+<!--  <div class="bodystyle">
+</div> -->
+<!--    <div id="Layer1" style="position:absolute; left:0px; top:0px; width:100%; height:100%">
+  <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498481350037&di=f9ce97eb27deff4aff7d4b9b7b213a92&imgtype=0&src=http%3A%2F%2Fupload.cbg.cn%2F2016%2F0821%2F1471753105928.jpg" width="100%" height="100%" />
+   </div> --> 
+   <form action="/login/"  method="post"> 
+   {% csrf_token  %}
+   <table id="form-data" align="center" border='2' width=1300px >
+   <tr bgcolor="#FFF000">
+     <th  colspan="9"><font color="red" size='12px'>公网ip映射基本信息</font></th>
+  </tr>
+    <!-- <label for="username"></label>  --> 
+     <tr>
+       <td bgcolor="#00FF00"  width=70><font color="red" size='3px'>申请人信息:</font></td>
+       <td width=80>申请人</td>
+       <td width=30><input id="shenqing" type="text" name="applicant" ></td>
+       <td width=50>部门</td>
+       <td width=20><input id="bumen" type="text" name="department" ></td>
+       <td width=90>申请时间</td>
+       <td width=20><input id="shenqingshijian" type="text" name="application_time" ></td>
+     </tr>
+     <tr height=30>
+     <td width=50></td>
+     <td width=50>IP:Port</td>
+     <td width=30>用途简述</td>
+     <td width=20>用途类型</td>
+     <td width=50>URL</td>
+     <td width=90>代理或中间件ip</td>
+     <td width=50>外部访问IP白名单限制</td>
+     </tr>
+     <tr >
+     <td bgcolor="#FF0000"><font color="blue" size='3px'>ip信息:</font></td>     
+     <td width=20>
+                     内部IP:Port:<input id="neibu" type="text" name="internal_ip" /><br/>
+                     外部IP:Port:<input id="waibu" type="text" name="external_ip"/></td>
+     <td width=20><input id="yongchu" type="text" name="application_brief" ></td>
+     <td rowspan="1">
+     <label><input name="Fruit" type="checkbox" value=""/>web</label><br/>
+     <label><input name="Fruit" type="checkbox" value=""/>接口</label><br/>
+     <label><input name="Fruit" type="checkbox" value=""/>其他</label>
+     </td>
+     <td width=20><input id="url" type="text" name="url" ></td>
+     <td width=20><input id="daili" type="text" name="agent" ></td>
+     <td width=20><input id="baiip" type="text" name="white_list" ></td>
+     </tr>
+    
+   </table>
+
+ <div style="text-align: center;">  
+       <input type="submit" value="提交"> <a href="#" onclick="addRow()">添加一行</a>
+    </div>  
+
+
+</form>
+</body>
+</html>

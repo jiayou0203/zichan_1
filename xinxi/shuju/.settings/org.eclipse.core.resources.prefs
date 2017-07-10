@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//src/data/__init__.py=utf-8
+encoding//src/data/admin.py=utf-8
+encoding//src/data/models.py=utf-8
+encoding//src/data/tests.py=utf-8
+encoding//src/data/views.py=utf-8
+encoding//src/manage.py=utf-8
+encoding//src/shuju/__init__.py=utf-8
+encoding//src/shuju/settings.py=utf-8
+encoding//src/shuju/urls.py=utf-8
+encoding//src/shuju/wsgi.py=utf-8
